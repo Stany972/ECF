@@ -15,11 +15,11 @@ function searchOMDB() {
     });
     const fullUrl = apiUrl + searchParams.toString();
 
-    // Effectuez la requête à l'API OMDB
+    // Faire la requête à l'API OMDB
     fetch(fullUrl)
         .then(response => response.json())
         .then(data => {
-            // Code pour afficher les résultats
+            // Afficher les résultats
             displayResults(data.Search);
         })
         .catch(error => {
@@ -42,14 +42,14 @@ function displayResults(results) {
         const resultDiv = document.createElement('div');
         resultDiv.classList.add('result-item');
 
-        // Ajoutez le titre, l'année et l'image du film s'il est disponible
+        // Ajouter le titre, l'année et l'image du film s'il est disponible
         resultDiv.innerHTML = `
             <h3>${result.Title}</h3>
             <p>Année: ${result.Year}</p>
             ${result.Poster !== 'N/A' ? `<img src="${result.Poster}" alt="${result.Title} Poster">` : ''}
         `;
 
-        // Ajoutez le résultat à la liste des résultats
+        // Ajout du résultat à la liste des résultats
         searchResultsDiv.appendChild(resultDiv);
     });
 }

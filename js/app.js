@@ -20,7 +20,7 @@ var films = [
       authors: "Andy Muschietti"
   }
 ];
-// Ajoutez une variable globale pour stocker le filtre actuel
+// Ajout variable pour stocker le filtre actuel
 let currentFilter = 'none';
 
 // Fonction pour afficher les films dans le tableau
@@ -28,10 +28,10 @@ function displayFilms() {
   const filmListBody = document.getElementById('filmListBody');
   filmListBody.innerHTML = '';
 
-  // Copiez le tableau des films pour ne pas modifier l'original
+  // Copie du tableau des films pour ne pas modifier l'original
   let filmsCopy = [...films];
 
-  // Triez les films en fonction du filtre
+  // Trie des films en fonction du filtre
   if (currentFilter === 'title') {
     filmsCopy.sort((a, b) => a.title.localeCompare(b.title));
   } else if (currentFilter === 'year') {
@@ -59,7 +59,7 @@ function displayFilms() {
   });
 }
 
-// Ajoutez une fonction pour mettre à jour le filtre
+// Fonction pour mettre à jour le filtre
 function filtreFilms() {
   const filtre = document.getElementById('filtre');
   currentFilter = filtre.value;
@@ -79,7 +79,7 @@ function addFilm() {
   const yearInput = document.getElementById('yearInput').value;
   const authorInput = document.getElementById('authorInput').value;
 
-  /// Valider les données
+  // Valider les données
   if (titleInput.length < 2 || isNaN(yearInput) || yearInput < 1900 || yearInput > new Date().getFullYear() || authorInput.length < 5) {
     // Afficher un message d'erreur pendant 3s : "Erreur dans le formulaire " + les zones d'erreurs
     message.innerHTML = '<div class="alert alert-danger" role="alert">Erreur dans le formulaire. Vérifiez les zones suivantes :<br>' +
